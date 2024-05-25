@@ -19,8 +19,6 @@ struct Display {
 
 Display display[8];
 
-// int y = 0; //8
-// int x = 0; //40
 
 //print 2 display
 void lcd_print(){
@@ -57,19 +55,15 @@ void lcd_print(){
 
 
 bool lcd_getpx(int boardy, int boardx){
-  return bitRead(display[int(boardx/5)].c[boardy],boardx%5)==1?1:0;
+  return bitRead(display[int(boardx/5)].c[boardy],4-boardx%5)==1?1:0;
 }
 void lcd_setpx(int boardy, int boardx, bool state){
-  bool v = lcd_getpx(boardy,boardx);
-  //if((v==0&&state==1) || (v==1&&state==0)){bitSet  (display[int(boardx/5)].c[boardy], boardx%5);}
-  
-  //if(v^state==true){bitSet  (display[int(boardx/5)].c[boardy], boardx%5);}
+  if(boardy>=8 || boardx>=40){return;}
 
-  if(state==0){bitClear(display[int(boardx/5)].c[boardy], boardx%5);}
-  else if(state==1 && v==0){bitSet  (display[int(boardx/5)].c[boardy], boardx%5);}
+  if(state==0){bitClear(display[int(boardx/5)].c[boardy], 4-boardx%5);}
+  else if(state==1 && lcd_getpx(boardy,boardx)==0){bitSet  (display[int(boardx/5)].c[boardy], 4-boardx%5);}
   //else if(v==1&&state==0){bitSet  (display[int(boardx/5)].c[boardy], boardx%5);}
 }
-
 
 
 

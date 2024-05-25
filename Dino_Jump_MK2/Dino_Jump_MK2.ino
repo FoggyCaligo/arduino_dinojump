@@ -1,5 +1,5 @@
 
-#include "lcd_manager.h"
+//#include "lcd_manager.h"
 #include "obstacle.h"
 
 
@@ -12,6 +12,11 @@ void setup() {
   lcd.begin(16,2);
   lcd.init();
   lcd.backlight();
+
+
+
+  // bird.move_wing();
+  // bird.move();
 }
 
 bool flag = false;
@@ -36,8 +41,21 @@ void loop() {
   //   }
   //   flag=false;
   // }
-  //test----------------------------------------
 
+
+
+  //test----------------------------------------
+  // for(int ly=0; ly<3; ly++){
+  //   for(int lx=0; lx<21; lx++){
+  //     lcd_setpx(ly,lx,1);
+  //       //delay(10);
+  //   }
+  // }
+
+
+  bird.move_wing();
+  bird.move();
+  delay(10);
 
   lcd_print();
 }
