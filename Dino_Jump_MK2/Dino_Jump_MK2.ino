@@ -18,24 +18,24 @@ bool flag = false;
 
 void loop() {
   //test----------------------------------------
-  if(flag==false){
-    for(int ly=0; ly<8; ly++){
-      for(int lx=0; lx<40; lx++){
-        lcd_setpx(ly,lx,1);
-        //delay(10);
-      }
-    }
-    flag=true;
-  }
-  else{
-    for(int ly=0; ly<4; ly++){
-      for(int lx=0; lx<40; lx++){
-        lcd_setpx(ly,lx,0);
-        //delay(10);
-      }
-    }
-    flag=false;
-  }
+  // if(flag==false){
+  //   for(int ly=0; ly<8; ly++){
+  //     for(int lx=0; lx<40; lx++){
+  //       lcd_setpx(ly,lx,1);
+  //       //delay(10);
+  //     }
+  //   }
+  //   flag=true;
+  // }
+  // else{
+  //   for(int ly=0; ly<4; ly++){
+  //     for(int lx=0; lx<40; lx++){
+  //       lcd_setpx(ly,lx,0);
+  //       //delay(10);
+  //     }
+  //   }
+  //   flag=false;
+  // }
   //test----------------------------------------
 
 
