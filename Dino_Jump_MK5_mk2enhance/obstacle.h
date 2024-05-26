@@ -28,7 +28,6 @@ public:
         //Serial.println(x);
       }
     }
-
   }
 };
 
@@ -74,6 +73,26 @@ public:
       wing=true;
     }
   }
+  void move(){
+    move_wing();
+    //기존 픽셀 삭제
+    for(int ly=0; ly<8; ly++){
+      for(int lx=0; lx<5; lx++){
+        bool get = lcd_getpx(ly+y,x-lx);
+        if(lcd_getpx(ly+y,x-lx)==true && curr_form[ly][4-lx]==true){
+          lcd_setpx(ly+y, x-lx, 0);
+        }
+      }
+    }
+    //한칸 뒤로 움직이기
+    x-=1;
+    for(int ly=0; ly<8; ly++){
+      for(int lx=0; lx<5; lx++){
+        lcd_setpx(y+ly,x-lx,curr_form[ly][4-lx]);
+        //Serial.println(x);
+      }
+    }
+  }
 };
 
 Bird bird;
@@ -104,6 +123,7 @@ public:
         curr_form[ly][lx] = box[ly][lx];
       }
     }
+    move();
   }
 };
 
@@ -129,6 +149,7 @@ public:
         curr_form[ly][lx] = box[ly][lx];
       }
     }
+    move();
   }
 };
 
@@ -155,5 +176,6 @@ public:
         curr_form[ly][lx] = box[ly][lx];
       }
     }
+    move();
   }
 };

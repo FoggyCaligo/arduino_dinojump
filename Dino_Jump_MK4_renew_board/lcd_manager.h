@@ -1,3 +1,7 @@
+#include "Queue.h"
+#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(0x27, 16, 2);   // I2C lcd 주소값 확인 , 16문자에 , 2열
+
 #include "Arduino.h"
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 16, 2);   // I2C lcd 주소값 확인 , 16문자에 , 2열
@@ -17,7 +21,10 @@ struct Display {
 };
 };
 
-Display display[8];
+class Map{
+public:
+  
+}
 
 
 //print 2 display

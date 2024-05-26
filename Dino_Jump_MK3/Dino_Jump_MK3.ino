@@ -13,20 +13,6 @@ void setup() {
   lcd.begin(16,2);
   lcd.init();
   lcd.backlight();
-
-
-  // q.push(1);
-  // q.push(2);
-  // q.push(1);
-  // q.push(2);
-  // q.push(1);
-  // q.push(2);
-  // q.display();
-  // q.pop();
-  // q.display();
-
-  // bird.move_wing();
-  // bird.move();
 }
 
 bool flag = false;
@@ -65,11 +51,7 @@ void loop() {
   //   }
   // }
 
-  
 
-
-  bird.move_wing();
-  bird.move();
   //delay(10);
 
   //gameMap.update();

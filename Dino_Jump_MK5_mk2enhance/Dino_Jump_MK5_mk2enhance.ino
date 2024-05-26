@@ -5,7 +5,7 @@
 //#include "Queue.h"
 
 //bool board[8][40]={1,};
-//Map gameMap;
+Map gameMap;
 
 void setup() {
   // put your setup code here, to run once:
@@ -29,7 +29,7 @@ void setup() {
   // bird.move();
 }
 
-bool flag = false;
+//bool flag = false;
 
 
 
@@ -64,12 +64,14 @@ void loop() {
   //       //delay(10);
   //   }
   // }
+  //unsigned long currentMillis = millis();
 
-  
+  gameMap.update();
+  delay(10);
 
 
-  bird.move_wing();
-  bird.move();
+  // bird.move_wing();
+  // bird.move();
   //delay(10);
 
   //gameMap.update();

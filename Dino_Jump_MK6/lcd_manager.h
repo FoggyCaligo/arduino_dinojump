@@ -33,11 +33,9 @@ void lcd_print(){
   lcd.createChar(5, display[5].c);
   lcd.createChar(6, display[6].c);
   lcd.createChar(7, display[7].c);
-
   //lcd.clear();
   lcd.home();
   //lcd.setCursor(0,0);
-
 
   // for(int row=0; row<8; row++){
   //   lcd.write(row);
@@ -50,9 +48,7 @@ void lcd_print(){
   lcd.write(5);
   lcd.write(6);
   lcd.write(7);
-  
 }
-
 
 bool lcd_getpx(int boardy, int boardx){
   return bitRead(display[int(boardx/5)].c[boardy],4-boardx%5)==1?1:0;
@@ -64,3 +60,4 @@ void lcd_setpx(int boardy, int boardx, bool state){
   else if(state==1 && lcd_getpx(boardy,boardx)==0){bitSet  (display[int(boardx/5)].c[boardy], 4-boardx%5);}
   //else if(v==1&&state==0){bitSet  (display[int(boardx/5)].c[boardy], boardx%5);}
 }
+

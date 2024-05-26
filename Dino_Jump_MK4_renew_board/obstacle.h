@@ -1,5 +1,5 @@
 
-#include"lcd_manager.h"
+//#include"lcd_manager.h"
 
 
 
@@ -9,27 +9,27 @@ public:
   int y=0;
   bool curr_form[8][5];
   bool design[8][5] = {0,};
+  
+  // void move(){
+  //   //기존 픽셀 삭제
+  //   for(int ly=0; ly<8; ly++){
+  //     for(int lx=0; lx<5; lx++){
+  //       bool get = lcd_getpx(ly+y,x-lx);
+  //       if(lcd_getpx(ly+y,x-lx)==true && curr_form[ly][4-lx]==true){
+  //         lcd_setpx(ly+y, x-lx, 0);
+  //       }
+  //     }
+  //   }
+  //   //한칸 뒤로 움직이기
+  //   x-=1;
+  //   for(int ly=0; ly<8; ly++){
+  //     for(int lx=0; lx<5; lx++){
+  //       lcd_setpx(y+ly,x-lx,curr_form[ly][4-lx]);
+  //       //Serial.println(x);
+  //     }
+  //   }
 
-  void move(){
-    //기존 픽셀 삭제
-    for(int ly=0; ly<8; ly++){
-      for(int lx=0; lx<5; lx++){
-        bool get = lcd_getpx(ly+y,x-lx);
-        if(lcd_getpx(ly+y,x-lx)==true && curr_form[ly][4-lx]==true){
-          lcd_setpx(ly+y, x-lx, 0);
-        }
-      }
-    }
-    //한칸 뒤로 움직이기
-    x-=1;
-    for(int ly=0; ly<8; ly++){
-      for(int lx=0; lx<5; lx++){
-        lcd_setpx(y+ly,x-lx,curr_form[ly][4-lx]);
-        //Serial.println(x);
-      }
-    }
-
-  }
+  // }
 };
 
 

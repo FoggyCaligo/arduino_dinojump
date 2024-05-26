@@ -10,6 +10,46 @@ public:
   bool curr_form[8][5];
   bool design[8][5] = {0,};
 
+  // bool flag = true;
+
+
+  // void move(int y1,int x1, int y2, int x2){
+  //   if(flag==true){
+  //     curr_form[y1][x1] = 1;
+  //     curr_form[y2][x2] = 0;
+  //     flag = false;
+  //   }
+  //   else{
+  //     curr_form[y1][x1] = 0;
+  //     curr_form[y2][x2] = 1;
+  //     flag=true;
+  //   }
+
+
+  //   //기존 픽셀 삭제
+  //   for(int ly=0; ly<8; ly++){
+  //     for(int lx=0; lx<5; lx++){
+  //       bool get = lcd_getpx(ly+y,x-lx);
+  //       if(lcd_getpx(ly+y,x-lx)==true && curr_form[ly][4-lx]==true){
+  //         lcd_setpx(ly+y, x-lx, 0);
+  //       }
+  //     }
+  //   }
+  //   //한칸 뒤로 움직이기
+  //   x-=1;
+  //   for(int ly=0; ly<8; ly++){
+  //     for(int lx=0; lx<5; lx++){
+  //       lcd_setpx(y+ly,x-lx,curr_form[ly][4-lx]);
+  //       //Serial.println(x);
+  //     }
+  //   }
+
+  // }
+  
+  
+  
+  
+  
   void move(){
     //기존 픽셀 삭제
     for(int ly=0; ly<8; ly++){
@@ -57,12 +97,26 @@ public:
       }
     }
     //set wing
-    move_wing();
+    //move_wing();
     // move & draw
-    move();
+    //move();
 
   }
-  move_wing(){
+  // void move_wing override(){
+  //   if(wing==true){
+  //     curr_form[0][3] = 1;
+  //     curr_form[2][3] = 0;
+  //     wing = false;
+  //   }
+  //   else{
+  //     curr_form[0][3] = 0;
+  //     curr_form[2][3] = 1;
+  //     wing=true;
+  //   }
+  // }
+
+  void move(){
+    //move_wing();
     if(wing==true){
       curr_form[0][3] = 1;
       curr_form[2][3] = 0;
@@ -73,6 +127,29 @@ public:
       curr_form[2][3] = 1;
       wing=true;
     }
+    
+    
+    
+    
+    
+    //기존 픽셀 삭제
+    for(int ly=0; ly<8; ly++){
+      for(int lx=0; lx<5; lx++){
+        bool get = lcd_getpx(ly+y,x-lx);
+        if(lcd_getpx(ly+y,x-lx)==true && curr_form[ly][4-lx]==true){
+          lcd_setpx(ly+y, x-lx, 0);
+        }
+      }
+    }
+    //한칸 뒤로 움직이기
+    x-=1;
+    for(int ly=0; ly<8; ly++){
+      for(int lx=0; lx<5; lx++){
+        lcd_setpx(y+ly,x-lx,curr_form[ly][4-lx]);
+        //Serial.println(x);
+      }
+    }
+
   }
 };
 

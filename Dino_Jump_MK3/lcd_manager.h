@@ -2,8 +2,6 @@
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 16, 2);   // I2C lcd 주소값 확인 , 16문자에 , 2열
 
-void DrawLine(int x, int y, int length, bool hori, bool isSet);
-
 struct Display {
   byte c[8] = {
   B00000,
@@ -16,6 +14,9 @@ struct Display {
   B00000
 };
 };
+
+
+
 
 Display display[8];
 
