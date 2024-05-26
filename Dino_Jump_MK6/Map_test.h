@@ -1,6 +1,5 @@
 #include "Queue.h"
 
-
 class Map{
 public:
   int speed = 600;
@@ -20,7 +19,6 @@ public:
   Map(){
     randomSeed(analogRead(0));
     q.push(Bird());
-
     
   }
 
@@ -32,10 +30,7 @@ public:
 
 
     end_count++;
-    if(end_count>=45){
-      //새로운 블럭 만들고 기존 블럭 삭제
-      q.push(Bird());
-
+    if(end_count>=46){
       q.pop();
       end_count = 0;
     }
